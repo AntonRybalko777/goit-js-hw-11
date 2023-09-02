@@ -1,5 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const elements = {
   form: document.querySelector('.search-form'),
@@ -8,6 +10,7 @@ const elements = {
 };
 let page = 1;
 let search;
+let gallery = new SimpleLightbox('.gallery a');
 
 elements.form.addEventListener('submit', handlerSearch);
 elements.loadBtn.addEventListener('click', handlerLoadMore);
@@ -79,7 +82,7 @@ function createMarkup(arr) {
         comments,
         downloads,
       }) => `<div class="photo-card">
-      <img src="${webformatURL}" alt="${tags}" width="400" loading="lazy" />
+      <a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" width="400" loading="lazy" /></a>
       <div class="info">
         <p class="info-item">${likes}
           <b>Likes</b>
@@ -98,4 +101,5 @@ function createMarkup(arr) {
     )
     .join('');
   elements.gallery.insertAdjacentHTML('beforeend', markup);
+  gallery.refresh();
 }
