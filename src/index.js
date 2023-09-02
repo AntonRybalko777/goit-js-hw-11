@@ -47,8 +47,20 @@ async function searchPics(query) {
         'Sorry, there are no images matching your search query. Please try again.'
       );
     } else {
+      if (page === 1) {
+        Notiflix.Notify.success(
+          `Hooray! We found ${response.data.totalHits} images.`
+        );
+      }
       createMarkup(response.data.hits);
-      elements.loadBtn.classList.remove('hidden');
+      if (page * 40 < response.data.totalHits) {
+        elements.loadBtn.classList.remove('hidden');
+      } else {
+        elements.loadBtn.classList.add('hidden');
+        Notiflix.Notify.warning(
+          "We're sorry, but you've reached the end of search results."
+        );
+      }
     }
   } catch (error) {
     console.error(error);
