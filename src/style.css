@@ -1,0 +1,16 @@
+.info {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.photo-card {
+  max-width: 300px;
+}
+
+.hidden {
+  display: none;
+}
