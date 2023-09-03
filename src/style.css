@@ -1,16 +1,85 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #403b3a;
+}
+
 .info {
   display: flex;
-  gap: 10px;
+  gap: 25px;
+  font-size: 12px;
+  justify-content: center;
+}
+.info-item {
+  text-align: center;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px 10px;
+  justify-content: center;
+  padding-top: 70px;
 }
 .photo-card {
-  max-width: 300px;
+  width: 300px;
+  border: 1px solid grey;
+}
+.card-image {
+  object-fit: fill;
 }
 
 .hidden {
   display: none;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #98ddf1;
+  text-align: center;
+  position: fixed;
+}
+
+.search-form {
+  padding-top: 10px;
+}
+
+.form-input {
+  width: 200px;
+  height: 20px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.form-input:focus {
+  outline: none;
+}
+.form-input::placeholder {
+  opacity: 0.8;
+}
+
+.submit-button {
+  display: inline-block;
+  width: 60px;
+  height: 25px;
+  font-family: inherit;
+  color: #403b3a;
+  background-color: #dee4e7;
+  border: 1px solid grey;
+  border-radius: 4px;
+  font-weight: 600;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  background-color: #d2d7da;
 }
