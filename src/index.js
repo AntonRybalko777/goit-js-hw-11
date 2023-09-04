@@ -17,14 +17,14 @@ let gallery = new SimpleLightbox('.gallery a');
 let options = {
   rootMargin: '300px',
 };
+elements.form.addEventListener('submit', handlerSearch);
 
 let observer = new IntersectionObserver(handlerInfScroll, options);
-
-elements.form.addEventListener('submit', handlerSearch);
 
 function handlerSearch(evt) {
   page = 1;
   evt.preventDefault();
+  observer.unobserve(elements.guard);
   elements.gallery.innerHTML = '';
   let searchValue = evt.target.searchQuery.value;
   searchPics(searchValue);
@@ -204,22 +204,22 @@ function handlerInfScroll(entries) {
 //         comments,
 //         downloads,
 //       }) => `<a href="${largeImageURL}"><div class="photo-card">
-//       <img src="${webformatURL}" alt="${tags}" width="400" loading="lazy" />
-//       <div class="info">
-//         <p class="info-item">${likes}
-//           <b>Likes</b>
-//         </p>
-//         <p class="info-item">${views}
-//           <b>Views</b>
-//         </p>
-//         <p class="info-item">${comments}
-//           <b>Comments</b>
-//         </p>
-//         <p class="info-item">${downloads}
-//           <b>Downloads</b>
-//         </p>
-//       </div>
-//     </div></a>`
+//              <img src="${webformatURL}" alt="${tags}" width="300" height="200" loading="lazy" class="card-image" />
+//             <div class="info">
+//                <p class="info-item">${likes}
+//                  <br><b>Likes</b>
+//                </p>
+//                <p class="info-item">${views}
+//                <br><b>Views</b>
+//                </p>
+//                <p class="info-item">${comments}
+//                <br><b>Comments</b>
+//                </p>
+//                <p class="info-item">${downloads}
+//                <br><b>Downloads</b>
+//                </p>
+//              </div>
+//            </div></a>`
 //     )
 //     .join('');
 //   elements.gallery.insertAdjacentHTML('beforeend', markup);
