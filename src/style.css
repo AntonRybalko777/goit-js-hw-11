@@ -17,6 +17,7 @@ a {
 }
 .info-item {
   text-align: center;
+  margin: 5px 0;
 }
 
 .gallery {
@@ -28,7 +29,12 @@ a {
 }
 .photo-card {
   width: 300px;
-  border: 1px solid grey;
+  border: 1px solid #e7e9fc;
+}
+.photo-card:hover,
+.photo-card:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .card-image {
   object-fit: fill;
@@ -44,6 +50,7 @@ a {
   background-color: #98ddf1;
   text-align: center;
   position: fixed;
+  opacity: 0.9;
 }
 
 .search-form {
@@ -63,6 +70,7 @@ a {
 }
 .form-input::placeholder {
   opacity: 0.8;
+  font-family: inherit;
 }
 
 .submit-button {
