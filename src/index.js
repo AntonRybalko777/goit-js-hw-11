@@ -118,6 +118,15 @@ function handlerInfScroll(entries) {
   });
 }
 
+const { height: cardHeight } = document
+  .querySelector('.gallery')
+  .firstElementChild.getBoundingClientRect();
+
+window.scrollBy({
+  top: cardHeight * 2,
+  behavior: 'smooth',
+});
+
 // ******* LOAD MORE ****
 
 // import axios from 'axios';
